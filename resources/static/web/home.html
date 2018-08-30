@@ -7,7 +7,6 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,600,800" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -25,29 +24,20 @@
             <th>Name</th>
             <th>Resources</th>
             <th>Project</th>
+            <th>Actions</th>
         </tr>
         </thead>
-        <!-- <tbody>
+        <tbody>
        <tr>
-            <td>@partido.IdPartido</td>
-            <td>@partido.FechaComienzo</td>
-            <td>@partido.JugadorLocal.Nombre</td>
-            <td>@partido.JugadorVisitante.Nombre</td>
-            <td>@partido.Cancha.Nombre</td>
-            <td>@partido.EstadoDisplay()</td>
-            <td>
-                @Html.ActionLink(partido.Estado == EstadoPartido.Finalizado ? "Ver" : "Jugar", "Jugar", "Tablero", new { id = partido.IdPartido }, null)
-                @if (partido.Estado == EstadoPartido.NoIniciado)
-                {
-                @:&nbsp;
-                @Html.ActionLink("Editar", "Editar", new { id = partido.IdPartido })
-                @:&nbsp;
-                @Html.ActionLink("Eliminar", "Eliminar", new { id = partido.IdPartido })
-                }
-            </td>
+            <td></td> <!-- Id -->
+            <td></td> <!-- Name -->
+            <td></td> <!-- Resources -->
+            <td></td> <!-- Project -->
+            <td><button type="button" class="btn btn-secondary">Update</button>
+                <button type="button" class="btn btn-secondary">Delete</button>
+            </td> <!-- Actions -->
         </tr>
-        }
-        </tbody>-->
+        </tbody>
     </table>
 
 </body>
