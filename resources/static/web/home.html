@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,600,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <title>Clients</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-   <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
 <body>
     <div class="bannerTitle"><h1>Clients</h1></div>
     <a href="#" class="btn btn-primary" id="addClient">Create Client</a>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Resources</th>
+            <th>Project</th>
+        </tr>
+        </thead>
+        <!-- <tbody>
+       <tr>
+            <td>@partido.IdPartido</td>
+            <td>@partido.FechaComienzo</td>
+            <td>@partido.JugadorLocal.Nombre</td>
+            <td>@partido.JugadorVisitante.Nombre</td>
+            <td>@partido.Cancha.Nombre</td>
+            <td>@partido.EstadoDisplay()</td>
+            <td>
+                @Html.ActionLink(partido.Estado == EstadoPartido.Finalizado ? "Ver" : "Jugar", "Jugar", "Tablero", new { id = partido.IdPartido }, null)
+                @if (partido.Estado == EstadoPartido.NoIniciado)
+                {
+                @:&nbsp;
+                @Html.ActionLink("Editar", "Editar", new { id = partido.IdPartido })
+                @:&nbsp;
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = partido.IdPartido })
+                }
+            </td>
+        </tr>
+        }
+        </tbody>-->
+    </table>
 
 </body>
 <!--<script type="text/javascript" src="js/dinamic-project.js"></script>-->
