@@ -11,6 +11,13 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+#sidebar {
+    position: fixed;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+}
 
 /* Modal Content/Box */
 .updatemodal-content {
@@ -70,4 +77,17 @@
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
+}
+
+#bannerClient{
+    margin: 30px;
+    border-style: double;
+}
+
+#clientsTable{
+    margin: 20px;
+}
+
+#addClient{
+    margin: 20px;
 }
