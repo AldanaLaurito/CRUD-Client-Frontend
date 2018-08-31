@@ -1,4 +1,20 @@
+#sidebar {
+    position: fixed;
+}
 * {
     margin: 0px;
     padding: 0px;
+}
+
+#bannerClient{
+    margin: 30px;
+    border-style: double;
+}
+
+#clientsTable{
+    margin: 20px;
+}
+
+#addClient{
+    margin: 20px;
 }

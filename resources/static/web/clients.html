@@ -28,7 +28,7 @@
         <li>Contact</li>
     </ul>
 </div>
-    <div class="bannerTitle"><h1>Clients</h1></div>
+    <div id="bannerClient" class="bannerTitle"><h1>Clients</h1></div>
     <a href="#" class="btn btn-primary" id="addClient">Create Client</a>
 
 <!-- The Modal -->
@@ -42,19 +42,21 @@
         </div>
         <h2>Add Client</h2>
         <div class="modal-body">
-            <div class="form-group" onsubmit="return false">
-                Id:<br>
-                <input type="text" name="id">
-                <br>
-                Name:<br>
-                <input type="text" name="name">
-                <br>
-                Q Resources:<br>
-                <input type="text" name="resources">
-                <br>
-                <br>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
+            <form id="create-client-form">
+                <div class="form-group" onsubmit="return false">
+                    Id:<br>
+                    <input type="text" name="id">
+                    <br>
+                    Name:<br>
+                    <input type="text" name="name">
+                    <br>
+                    Q Resources:<br>
+                    <input type="text" name="resources">
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -62,7 +64,7 @@
 
 
     <p id="counter"></p>
-    <table class="table table-striped table-bordered">
+    <table id="clientsTable" class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>Id</th>
