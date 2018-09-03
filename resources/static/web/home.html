@@ -40,18 +40,20 @@
             <span class="close">&times;</span>
             <h2></h2>
         </div>
-        <h2>Add Client</h2>
+        <h2 id="modal-addClient-Title">Add Client</h2>
         <div class="modal-body">
             <form id="create-client-form">
                 <div class="form-group" onsubmit="return false">
                     Name:<br>
-                    <input type="text" name="name">
+                    <input type="text" name="name" placeholder="Name">
                     <br>
                     Q Resources:<br>
-                    <input type="text" name="resources">
+                    <input type="text" name="resources" placeholder="Q Resources">
                     <br>
                     <br>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-dark">Save</button>
+                    </div>
                 </div>
             </form>
         </div>
