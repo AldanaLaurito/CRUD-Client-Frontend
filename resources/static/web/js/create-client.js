@@ -3,6 +3,7 @@
 }*/
 $(document).ready(function(){
     var submit = $("form").submit(function (event) {
+
         alert("Submitted");
         event.preventDefault();
     });
