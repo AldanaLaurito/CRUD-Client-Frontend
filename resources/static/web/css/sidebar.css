@@ -1,5 +1,5 @@
 
-#sidebar {
+#client-sidebar {
     position: fixed;
     width: 200px;
     height: 100%;
@@ -8,11 +8,11 @@
     transition: all 500ms linear;
 }
 
-#sidebar.active {
+#client-sidebar.active {
     left: 0px;
 }
 
-#sidebar ul li {
+#client-sidebar ul li {
     color: rgba(230, 230, 230, .9);
     list-style: none;
     padding: 15px 10px;
@@ -21,7 +21,7 @@
 }
 
 
-#sidebar .toggle-btn {
+#client-sidebar .toggle-btn {
     position: absolute;
     left: 230px;
     top: 20px;
@@ -36,7 +36,7 @@
     right: 40px;
 }
 
-#sidebar .toggle-btn span {
+#client-sidebar .toggle-btn span {
     display: block;
     width: 40px;
     text-align: center;
