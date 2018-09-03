@@ -28,11 +28,11 @@
     cursor: pointer;
 }
 
-.bannerTitle{
+#bannerClient{
     right: 40px;
 }
 
-.table table-striped table-bordered{
+#create-clientsTable{
     right: 40px;
 }
 

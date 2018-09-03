@@ -1,4 +1,4 @@
-.modal {
+#create-myModal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -18,7 +18,7 @@
 }
 
 /* Modal Content */
-.modal-content {
+#create-modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -31,7 +31,7 @@
 }
 
 /* The Close Button */
-.close {
+#create-modal-close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
@@ -47,13 +47,13 @@
     text-decoration: none;
     cursor: pointer;
 }
-.modal-header {
+#create-modal-header {
     padding: 2px 16px;
     background-color: black;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+#create-modal-body {padding: 2px 16px;}
 
 
 
