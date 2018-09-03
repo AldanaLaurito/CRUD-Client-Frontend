@@ -6,17 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
+
     <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <title>Clients</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/sidebar.css"/>
+    <link rel="stylesheet" href="css/new-client-form.css"/>
 </head>
 <body>
-    <div class="bannerTitle"><h1>Clients</h1></div>
+<div id="sidebar">
+    <div class="toggle-btn">
+        <span>&#9776;</span>
+    </div>
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</div>
+    <div id="bannerClient" class="bannerTitle"><h1>Clients</h1></div>
     <a href="#" class="btn btn-primary" id="addClient">Create Client</a>
     <table id="" class="table table-striped table-bordered">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2></h2>
+        </div>
+        <h2>Add Client</h2>
+        <div class="modal-body">
+            <form id="create-client-form">
+                <div class="form-group" onsubmit="return false">
+                    Id:<br>
+                    <input type="text" name="id">
+                    <br>
+                    Name:<br>
+                    <input type="text" name="name">
+                    <br>
+                    Q Resources:<br>
+                    <input type="text" name="resources">
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+    <p id="counter"></p>
+    <table id="clientsTable" class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>Id</th>
@@ -25,7 +73,7 @@
             <th>Actions</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="clients">
        <tr>
             <td></td> <!-- Id -->
             <td></td> <!-- Name -->
@@ -76,4 +124,6 @@
 <!--<script type="text/javascript" src="js/dinamic-project.js"></script>-->
 <script type="text/javascript" src="js/update.js"></script>
 
+<script type="text/javascript" src="js/sidebar.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/new-client-button.js" charset="UTF-8"></script>
 </html>
