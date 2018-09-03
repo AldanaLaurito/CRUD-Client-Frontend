@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2a6a583-aa74-4502-918e-b50e1520a0ec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/static/web/css/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/static/web/css/sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/static/web/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/static/web/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,14 +39,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="423" />
-          <entry key="html" value="611" />
+          <entry key="html" value="698" />
           <entry key="js" value="174" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="423" />
-          <entry key="HTML" value="611" />
+          <entry key="HTML" value="698" />
           <entry key="JavaScript" value="174" />
         </counts>
       </usages-collector>
@@ -91,24 +91,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/static/web/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="21" column="21" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="340">
+              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding>
                 <element signature="e#1399#1406#1" expanded="true" />
                 <element signature="e#2974#2981#1" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/static/web/css/sidebar.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -140,9 +131,9 @@
       <list>
         <option value="$PROJECT_DIR$/resources/static/web/js/update.js" />
         <option value="$PROJECT_DIR$/resources/static/web/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/static/web/home.html" />
         <option value="$PROJECT_DIR$/resources/static/web/css/new-client-form.css" />
         <option value="$PROJECT_DIR$/resources/static/web/css/sidebar.css" />
+        <option value="$PROJECT_DIR$/resources/static/web/home.html" />
       </list>
     </option>
   </component>
@@ -258,7 +249,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9038000" />
+    <option name="totallyTimeSpent" value="9890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -335,8 +326,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/static/web/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="21" />
+        <state relative-caret-position="340">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
             <element signature="e#1399#1406#1" expanded="true" />
             <element signature="e#2974#2981#1" expanded="true" />
