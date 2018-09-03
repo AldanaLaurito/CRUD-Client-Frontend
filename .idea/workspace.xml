@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2a6a583-aa74-4502-918e-b50e1520a0ec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/static/web/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/static/web/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/static/web/js/create-client.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/static/web/js/create-client.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,20 +55,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/static/web/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+            <state relative-caret-position="112">
+              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/static/web/js/create-client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="102">
+              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -112,8 +111,8 @@
         <option value="$PROJECT_DIR$/resources/static/web/css/style.css" />
         <option value="$PROJECT_DIR$/resources/static/web/css/sidebar.css" />
         <option value="$PROJECT_DIR$/resources/static/web/css/new-client-form.css" />
-        <option value="$PROJECT_DIR$/resources/static/web/js/create-client.js" />
         <option value="$PROJECT_DIR$/resources/static/web/home.html" />
+        <option value="$PROJECT_DIR$/resources/static/web/js/create-client.js" />
       </list>
     </option>
   </component>
@@ -195,6 +194,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535742360779" />
+    <property name="js.last.introduce.type" value="VAR" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/frontEnd (1)/frontEnd" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -226,12 +226,12 @@
       <workItem from="1535647489875" duration="5197000" />
       <workItem from="1535717021053" duration="7477000" />
       <workItem from="1535735209669" duration="6916000" />
-      <workItem from="1535976647220" duration="2841000" />
+      <workItem from="1535976647220" duration="3052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24668000" />
+    <option name="totallyTimeSpent" value="24879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -313,20 +313,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/static/web/js/create-client.js">
+    <entry file="file://$PROJECT_DIR$/resources/static/web/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="112">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/static/web/home.html">
+    <entry file="file://$PROJECT_DIR$/resources/static/web/js/create-client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+        <state relative-caret-position="102">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
