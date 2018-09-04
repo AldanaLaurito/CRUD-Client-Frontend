@@ -1,3 +1,4 @@
+
 var app = new function() {
     this.el = document.getElementById('clients');
     this.countries = ['France', 'Germany', 'England', 'Spain'];
