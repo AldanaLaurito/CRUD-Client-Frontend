@@ -1,8 +1,9 @@
-
+var clients=['France', 'Germany', 'England', 'Spain'];
+var resources=['Lopez', 'Fernandez','Martinez','Ramirez'];
 var app = new function() {
     this.el = document.getElementById('clients');
-    this.countries = ['France', 'Germany', 'England', 'Spain'];
-    this.qResources = ['Lopez', 'Fernandez','Martinez','Ramirez'];
+    this.countries = clients;
+    this.qResources = resources;
     /*this.Count = function(data) {
         var el = document.getElementById('counter');
         var name = 'client';
