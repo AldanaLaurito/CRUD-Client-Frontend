@@ -12,13 +12,20 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <title>Clients</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style-admin.css"/>
     <link rel="stylesheet" href="css/sidebar.css"/>
     <link rel="stylesheet" href="css/new-client-form.css"/>
 </head>
 <body>
 <noscript>This webpage uses JavaScript. If you have disabled it on purpose, please enabled it again.</noscript>
-<div id="sidebar">
+<button class="openbtn" onclick="openNav()">☰</button>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</div>
+<!--<div id="sidebar" class="sidebar">
     <div class="toggle-btn">
         <span>&#9776;</span>
     </div>
@@ -27,7 +34,8 @@
         <li>About</li>
         <li>Contact</li>
     </ul>
-</div>
+</div>-->
+<div class="flex-container" id="main" >
     <div id="bannerClient" class="bannerTitle"><h1>Clients</h1></div>
     <a href="#" class="btn btn-primary" id="addClient">Create Client</a>
 
@@ -53,7 +61,7 @@
                     <br>
                     <br>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-dark">Save</button>
+                        <button type="submit" id="save-create-client" class="btn btn-dark">Save</button>
                     </div>
                 </div>
             </form>
@@ -119,12 +127,12 @@
         </tr>
         </tbody>
     </table>
-
+</div>
 </body>
 <!--<script type="text/javascript" src="js/dinamic-project.js"></script>-->
 <script type="text/javascript" src="js/update.js"></script>
 
 <script type="text/javascript" src="js/sidebar.js" charset="UTF-8"></script>
 <script type="text/javascript" src="js/new-client-button.js" charset="UTF-8"></script>
-<script type="text/javascript" src="js/table.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/table-admin.js" charset="UTF-8"></script>
 </html>

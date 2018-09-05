@@ -11,6 +11,10 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+#save-create-client{
+    cursor: pointer;
+}
+
 #sidebar {
     position: fixed;
 }
@@ -25,7 +29,7 @@
 }
 
 #clientsTable{
-    margin: 20px;
+    margin: 0px;
 }
 
 #addClient{
