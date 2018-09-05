@@ -1,0 +1,24 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#sidebar {
+    position: fixed;
+}
+#bannerClient{
+    margin: 30px;
+    border-style: double;
+}
+
+#clientsTable{
+    margin: 0px;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
