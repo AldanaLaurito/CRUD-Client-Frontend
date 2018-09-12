@@ -1,7 +1,7 @@
 
 var table = document.querySelector("#tableClients");
 var tableBody = document.querySelector("#tableBody");
-tableBody.style.backgroundColor = "green";
+
 
 var requestURL = 'http://localhost:1012/clients';
 var request = new XMLHttpRequest();
@@ -61,6 +61,7 @@ function makeTable (jsonObj){
     }
 
 }
+tableBody.style.backgroundColor = "green";
 
 table.style.backgroundColor = "green";
 
