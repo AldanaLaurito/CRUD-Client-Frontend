@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="css/new-client-form.css"/>
     <link rel="stylesheet" href="css/sidebar.css"/>
 </head>
-<body>
+<body style="background-color:darkgreen">
 <noscript>This webpage uses JavaScript. If you have disabled it on purpose, please enabled it again.</noscript>
-<button class="openbtn" onclick="openNav()">☰</button>
-<div id="mySidebar" class="sidebar">
+<button class="openbtn" onclick="openNav()" style="background-color:darkgreen">☰</button>
+<div id="mySidebar" style="background-color:black" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <a href="#">Home</a>
     <a href="#">Clients</a>
@@ -37,32 +37,33 @@
 </div>-->
 <div class="flex-container" id="main">
 
-    <div id="bannerClient" class="bannerTitle"><h1>Clients</h1></div>
-<a href="#" class="btn btn-dark" id="addClient">Create Client</a>
+    <div id="bannerClient" class="bannerTitle" style="text-align: center"><h1>Clients</h1></div>
+    <a href="#" class="btn btn-dark" id="addClient" style="text-align: center">Create Client</a>
 
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="modal-content" style="background-color:honeydew">
             <div class="modal-header">
+                <span style="text-align: left">Add Client</span>
                 <span class="close">&times;</span>
                 <h2></h2>
             </div>
-            <h2 id="modal-addClient-Title">Add Client</h2>
+            <h2 id="modal-addClient-Title"></h2>
             <div class="modal-body">
                 <form id="create-client-form">
                     <div class="form-group" onsubmit="return false" method="post" >
                         Name:<br>
-                        <input type="text" id="name" class="form-control" placeholder="Name">
+                        <input type="text" id="name" class="form-control" placeholder="Name" required>
                         <br>
                         id:<br>
                         <input type="text" id="id" class="form-control" placeholder="id">
                         <br>
                         State:<br>
-                        <input type="text" id="state" class="form-control" placeholder="true or false">
+                        <input type="text" id="state" class="form-control" placeholder="true = enabled / false=disabled" required>
                         <br>
                         Q Resources:<br>
-                        <input type="text" id="qResources" class="form-control" placeholder="Q Resources">
+                        <input type="text" id="qResources" class="form-control" placeholder="Q Resources" required>
                         <br>
                         <br>
                         <!--<div class="form-group">
@@ -81,7 +82,7 @@
 
     <p id="counter"></p>
     <div>
-        <th id="table2" class="table table-striped table-bordered"></th>
+        <th id="table2"  class="table table-striped table-bordered"></th>
     </div>
     <nav class="navbar-dark bg-dark">
         <div class="container-fluid">
@@ -100,48 +101,48 @@
     </div>
 </div>
 
-  <div id="updateModal" class="updatemodal">
-      <div class="updatemodal-content">
-                             <div class="modal-header">
-                                      <span class="updateClose">&times;</span>
-                                       <h2></h2>
-                                    </div>
-                               <div class="modal-body">
-                                      <p><div class="container">
-                                          <h2>Update form</h2>
-                                               <div class="updateform-group" action="javascript:void(0);" method="POST" id="saveEdit">
-                                   <form id="update-client-form">
-                                       <div class="form-group" onsubmit="return false" method="post" >
-                                           Name:<br>
-                                           <input type="text" id="name-update" class="form-control" placeholder="Name">
-                                           <br>
-                                           id:<br>
-                                           <input type="text" id="id-update" class="form-control" placeholder="id">
-                                           <br>
-                                           State:<br>
-                                           <input type="text" id="state-update" class="form-control" placeholder="true or false">
-                                           <br>
-                                           Q Resources:<br>
-                                           <input type="text" id="qResources-update" class="form-control" placeholder="Q Resources">
-                                           <br>
-                                           <br>
-                                           <!--<div class="form-group">
-                                                <label for="lastUpdate">Last Update</label>
-                                                <input type="date" class="form-control" id="lastUpdate">
-                                           </div>-->
-                                           <div class="modal-footer">
-                                               <button type="submit" onclick="updateForm()"  class="btn btn-dark">Save</button>
-                                           </div>
-                                       </div>
-                                   </form>
-                                 </div>
-                               </div>
-                                    </p>
-                                   <p></p>
-                               </div>
- </div>
+<div id="updateModal" class="updatemodal">
+    <div class="updatemodal-content">
+        <div class="modal-header">
+            <span class="updateClose">&times;</span>
+            <h2></h2>
+        </div>
+        <div class="modal-body">
+            <p><div class="container">
+            <h2>Update form</h2>
+            <div class="updateform-group" action="javascript:void(0);" method="POST" id="saveEdit">
+                <form id="update-client-form">
+                    <div class="form-group" onsubmit="return false" method="post" >
+                        Name:<br>
+                        <input type="text" id="name-update" class="form-control" placeholder="Name" required>
+                        <br>
+                        id:<br>
+                        <input type="text" id="id-update" class="form-control" placeholder="id" required>
+                        <br>
+                        State:<br>
+                        <input type="text" id="state-update" class="form-control" placeholder="true = enabled / false=disabled" required>
+                        <br>
+                        Q Resources:<br>
+                        <input type="text" id="qResources-update" class="form-control" placeholder="Q Resources" required>
+                        <br>
+                        <br>
+                        <!--<div class="form-group">
+                             <label for="lastUpdate">Last Update</label>
+                             <input type="date" class="form-control" id="lastUpdate">
+                        </div>-->
+                        <div class="modal-footer">
+                            <button type="submit" onclick="updateForm()"  class="btn btn-dark">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+            </p>
+            <p></p>
+        </div>
     </div>
- </div>
+</div>
+</div>
 </body>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

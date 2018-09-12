@@ -6,6 +6,7 @@ var tableBody = document.querySelector("#tableBody");
 var requestURL = 'http://localhost:1012/clients';
 var request = new XMLHttpRequest();
 
+
 request.open('GET', requestURL, true);
 request.responseType = 'json';
 request.send();
@@ -22,24 +23,19 @@ function makeTable (jsonObj){
     var tr1 = document.createElement('tr');
 
     var th = document.createElement('th');
-    th.textContent = 'Id';
+    th.id='tableContainer';
+    th.textContent = 'Name';
 
     var th1 = document.createElement('th');
-    th1.textContent = 'Name';
+    th1.textContent = 'QResources';
 
     var th2 = document.createElement('th');
-    th2.textContent = 'State';
+    th2.textContent = 'Last Update';
 
     var th3 = document.createElement('th');
-    th3.textContent = 'QResources';
+    th3.textContent = 'Actions';
 
-    var th4 = document.createElement('th');
-    th4.textContent = 'Last Update';
-
-    var th5 = document.createElement('th');
-    th5.textContent = 'Actions'
-
-    tr1.append(th, th1, th2, th3, th4, th5);
+    tr1.append(th, th1, th2, th3);
     thead.append(tr1);
     table.append(thead);
 
@@ -47,37 +43,36 @@ function makeTable (jsonObj){
 
     var tableParts = jsonObj;
 
+
     for (var i = 0; i<tableParts.length; i++){
+        if(tableParts[i].state==true){
+            var tr = document.createElement('tr');
+            tr.style.backgroundColor = "green";
 
-        var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.textContent = tableParts[i].name;
 
-        var td1 = document.createElement('td');
-        td1.textContent = tableParts[i].id;
+            var td2 = document.createElement('td');
+            td2.textContent = tableParts[i].qResources;
 
-        var td2 = document.createElement('td');
-        td2.textContent = tableParts[i].name;
+            var td3 = document.createElement('td');
+            td3.textContent = tableParts[i].updated;
 
-        var td3 = document.createElement('td');
-        td3.textContent = tableParts[i].state;
+            var td4 = document.createElement('td');
+            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick=\"updateClient()\" >Update</button>\n" +
+                "\n" +
+                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \">Delete</button>\n";
 
-        var td4 = document.createElement('td');
-        td4.textContent = tableParts[i].qResources;
-
-        var td5 = document.createElement('td');
-        td5.textContent = tableParts[i].updated;
-
-        var td6 = document.createElement('td');
-        td6.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark\" onclick=\"updateClient()\" >Update</button>\n" +
-            "\n" +
-            "                <button type=\"button\" class=\"btn btn-danger\">Delete</button>\n"
-//onclick="updateClient()"
+            //document.getElementById("updateBtn").classList.add(tableParts[i].id);
+            //document.getElementById("deleteBtn").classList.add(tableParts[i].id);
+            //onclick="updateClient()"
 
 
-        tr.append(td1, td2, td3, td4, td5, td6);
-        tableBody.append(tr);
-        table.append(tableBody);
-
-    }}
+            tr.append(td1, td2, td3, td4);
+            tableBody.append(tr);
+        }
+    }
+}
 
 function postForm(){
     'use strict'
@@ -130,11 +125,14 @@ function updateForm(){
     post.send(dataJson);
 }
 
+
+table.style.backgroundColor = "green";
+
+
 function deleteClient(){
 
     var deleteUrl = 'http://localhost:1012/client'+ id +'/delete';
 
 }
-
 
 

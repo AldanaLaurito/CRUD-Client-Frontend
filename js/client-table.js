@@ -1,6 +1,7 @@
 
 var table = document.querySelector("#tableClients");
 var tableBody = document.querySelector("#tableBody");
+tableBody.style.backgroundColor = "green";
 
 var requestURL = 'http://localhost:1012/clients';
 var request = new XMLHttpRequest();
@@ -22,49 +23,46 @@ function makeTable (jsonObj){
 
     var th = document.createElement('th');
     th.id='tableContainer';
-    th.textContent = 'Id';
+    th.textContent = 'Name';
 
     var th1 = document.createElement('th');
-    th1.textContent = 'Name';
+    th1.textContent = 'QResources';
 
     var th2 = document.createElement('th');
-    th2.textContent = 'State';
+    th2.textContent = 'Last Update';
 
-    var th3 = document.createElement('th');
-    th3.textContent = 'QResources';
-
-    var th4 = document.createElement('th');
-    th4.textContent = 'Last Update';
-
-    tr1.append(th, th1, th2, th3, th4);
+    tr1.append(th, th1, th2);
     thead.append(tr1);
     table.append(thead);
 
     var tableParts = jsonObj;
 
     for (var i = 0; i<tableParts.length; i++){
-        var tr = document.createElement('tr');
+        if(tableParts[i].state==true){
+            var tr = document.createElement('tr');
+            tr.style.backgroundColor = "green";
 
-        var td1 = document.createElement('td');
-        td1.textContent = tableParts[i].id;
+            var td1 = document.createElement('td');
+            td1.textContent = tableParts[i].name;
+            td1.style.backgroundColor = "green";
 
-        var td2 = document.createElement('td');
-        td2.textContent = tableParts[i].name;
+            var td2 = document.createElement('td');
+            td2.textContent = tableParts[i].qResources;
+            td2.style.backgroundColor = "green";
 
-        var td3 = document.createElement('td');
-        td3.textContent = tableParts[i].state;
+            var td3 = document.createElement('td');
+            td3.textContent = tableParts[i].updated;
+            td3.style.backgroundColor = "green";
 
-        var td4 = document.createElement('td');
-        td4.textContent = tableParts[i].qResources;
-
-        var td5 = document.createElement('td');
-        td5.textContent = tableParts[i].updated;
-
-        tr.append(td1, td2, td3, td4, td5);
-        tableBody.append(tr);
-        table.append(tableBody);
+            tr.append(td1, td2, td3);
+            tableBody.append(tr);
+            table.append(tableBody);
+         }
     }
+
 }
+
+table.style.backgroundColor = "green";
 
 
 /*var tableBody = document.querySelector("#clients-table-body");
