@@ -1,16 +1,29 @@
+/* The Modal (background) */
+h1{
+    text-align: center;
+    margin-top: 5%;
+}
 
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+
+.navbar-right{
+    margin-right: 1%;
+}
+
+.jumbotron {
+    background-color: #003000;
+    color: white;
+}
 * {
     margin: 0px;
     padding: 0px;
-}
-
-
-#sidebar {
-    position: fixed;
-}
-#bannerClient{
-    margin: 30px;
-    border-style: double;
 }
 
 #clientsTable{

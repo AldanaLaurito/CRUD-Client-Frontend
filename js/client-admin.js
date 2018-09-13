@@ -47,7 +47,6 @@ function makeTable (jsonObj){
     for (var i = 0; i<tableParts.length; i++){
         if(tableParts[i].state==true){
             var tr = document.createElement('tr');
-            tr.style.backgroundColor = "green";
 
             var td1 = document.createElement('td');
             td1.textContent = tableParts[i].name;
@@ -126,7 +125,6 @@ function updateForm(){
 }
 
 
-table.style.backgroundColor = "green";
 
 
 function deleteClient(){

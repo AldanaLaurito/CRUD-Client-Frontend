@@ -40,19 +40,15 @@ function makeTable (jsonObj){
     for (var i = 0; i<tableParts.length; i++){
         if(tableParts[i].state==true){
             var tr = document.createElement('tr');
-            tr.style.backgroundColor = "green";
 
             var td1 = document.createElement('td');
             td1.textContent = tableParts[i].name;
-            td1.style.backgroundColor = "green";
 
             var td2 = document.createElement('td');
             td2.textContent = tableParts[i].qResources;
-            td2.style.backgroundColor = "green";
 
             var td3 = document.createElement('td');
             td3.textContent = tableParts[i].updated;
-            td3.style.backgroundColor = "green";
 
             tr.append(td1, td2, td3);
             tableBody.append(tr);
@@ -61,9 +57,7 @@ function makeTable (jsonObj){
     }
 
 }
-tableBody.style.backgroundColor = "green";
 
-table.style.backgroundColor = "green";
 
 
 /*var tableBody = document.querySelector("#clients-table-body");
