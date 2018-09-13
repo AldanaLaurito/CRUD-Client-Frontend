@@ -1,3 +1,5 @@
+var btnAddClient = document.getElementById("addClient");
+var btnUpdClient = document.getElementById("updateBtn");
 
 var table = document.querySelector("#tableClients");
 
@@ -58,7 +60,7 @@ function makeTable (jsonObj){
             td3.textContent = tableParts[i].updated;
 
             var td4 = document.createElement('td');
-            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick=\"updateClient()\" >Update</button>\n" +
+            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm()'>Update</button>\n" +
                 "\n" +
                 "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \">Delete</button>\n";
 
@@ -72,6 +74,12 @@ function makeTable (jsonObj){
         }
     }
 }
+btnAddClient.onclick = function() {
+    window.location.replace ('http://localhost:1012/create-client.html');
+}
+function updateClientForm(){
+    window.location.replace ('http://localhost:1012/update-client.html');
+}
 
 function postForm(){
     'use strict'
@@ -82,17 +90,17 @@ function postForm(){
     post.setRequestHeader('Content-Type', 'application/json');
 
     var name = document.getElementById("name").value;
-    var id = document.getElementById("id").value;
+    //var id = document.getElementById("id").value;
     var state = document.getElementById("state").value;
     var qResources = document.getElementById("qResources").value;
     //var lastUpdate= document.getElementById('lastUpdate').value;
-    var dto = {"name": name, "id": id, "state": state, "qResources": qResources, "updated": null /*lastUpdate*/};
+    var dto = {"name": name/*, "id": id */, "state": state, "qResources": qResources, "updated": null /*lastUpdate*/};
 
     var dataJson = JSON.stringify(dto);
 
     post.onload = function () {
         if (post.readyState === 4 && post.status === 200){
-            window.location.replace ('http://localhost:1012/clients-admin.html?');
+            window.location.replace ('http://localhost:1012/clients-admin.html');
         }
     };
 
