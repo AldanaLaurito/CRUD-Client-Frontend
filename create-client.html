@@ -13,7 +13,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <title>Create Client</title>
-    <link rel="stylesheet" href="css/style-admin.css"/>
+    <link rel="stylesheet" href="css/client-admin.css"/>
 </head>
 <body>
 <noscript>This webpage uses JavaScript. If you have disabled it on purpose, please enabled it again.</noscript>
@@ -67,11 +67,11 @@
     </nav>
     <div class="jumbotron">
         <div class="container">
-            <h1>Create a Client</h1>
+            <h1>Clients</h1>
         </div>
     </div>
 </header>
-<form id="create-client-form">
+<form id="create-client-form" class="form">
     <div class="form-group" onsubmit="return false" method="post" >
         Name:<br>
         <input type="text" id="name" class="form-control" placeholder="Name" required>
@@ -96,4 +96,12 @@
     </div>
 </form>
 </body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/new-client-button.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/client-admin.js" charset="UTF-8"></script>
 </html>

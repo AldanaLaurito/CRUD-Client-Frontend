@@ -13,7 +13,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <title>Update Client</title>
-    <link rel="stylesheet" href="css/style-admin.css"/>
+    <link rel="stylesheet" href="css/client-admin.css"/>
 </head>
 <body>
 <noscript>This webpage uses JavaScript. If you have disabled it on purpose, please enabled it again.</noscript>
@@ -30,7 +30,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li ><a href="#">Home<span class="caret sr-only"></span></a></li>
+                <li><a href="#">Home<span class="caret sr-only"></span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-extended="false">Employee<span class="caret sr-only"></span></a>
                     <ul class="dropdown-menu">
@@ -71,7 +71,7 @@
         </div>
     </div>
 </header>
-<form id="update-client-form">
+<form id="update-client-form" class="form">
     <div class="form-group" onsubmit="return false" method="post" >
         Name:<br>
         <input type="text" id="name-update" class="form-control" placeholder="Name" required>
@@ -96,4 +96,11 @@
     </div>
 </form>
 </body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/new-client-button.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/client-admin.js" charset="UTF-8"></script>
 </html>

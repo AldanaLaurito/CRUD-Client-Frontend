@@ -1,0 +1,45 @@
+
+#save-create-client{
+    cursor: pointer;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#clientsTable{
+    margin: 0px;
+}
+
+#addClient{
+    margin: 20px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 5%;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+
+.navbar-right{
+    margin-right: 1%;
+}
+
+.jumbotron {
+    background-color: #003000;
+    color: white;
+}
+
+.form{
+    margin: 30px;
+}
