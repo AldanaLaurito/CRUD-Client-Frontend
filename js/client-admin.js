@@ -59,10 +59,11 @@ function makeTable (jsonObj){
             var td3 = document.createElement('td');
             td3.textContent = tableParts[i].updated;
 
+            var clientId = tableParts[i].id;
             var td4 = document.createElement('td');
-            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm()'>Update</button>\n" +
+            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm(clientId)'>Update</button>\n" +
                 "\n" +
-                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \">Delete</button>\n";
+                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient(clientId)' >Delete</button>\n";
 
             //document.getElementById("updateBtn").classList.add(tableParts[i].id);
             //document.getElementById("deleteBtn").classList.add(tableParts[i].id);
@@ -77,13 +78,14 @@ function makeTable (jsonObj){
 btnAddClient.onclick = function() {
     window.location.replace ('http://localhost:1012/create-client.html');
 }
-function updateClientForm(){
+function updateClientForm(id){
+    localStorage.setItem("clientId", id)
     window.location.replace ('http://localhost:1012/update-client.html');
 }
 
 function postForm(){
     'use strict'
-    var postUrl = 'http://localhost:1012/newClient';
+    var postUrl = 'http://localhost:1012/clients';
     var post = new XMLHttpRequest();
 
     post.open("POST", postUrl, true);
@@ -107,7 +109,7 @@ function postForm(){
     post.send(dataJson);
 }
 
-function updateForm(){
+function updateForm(id){
     'use strict';
     var postUrl = 'http://localhost:1012/newClient';
     var post = new XMLHttpRequest();
@@ -135,9 +137,13 @@ function updateForm(){
 
 
 
-function deleteClient(){
+function deleteClient(id){
+    'use strict';
+    var deleteUrl = 'http://localhost:1012/client/'+ id;
+    var deleteReq = new XMLHttpRequest();
 
-    var deleteUrl = 'http://localhost:1012/client'+ id +'/delete';
+    deleteReq.open("DELETE", deleteUrl, true);
+    deleteReq.setRequestHeader('Content-Type', 'application/json');
 
 }
 
