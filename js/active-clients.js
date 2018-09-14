@@ -172,4 +172,47 @@ function disableClient(id){
 
 }
 
+function update() {
+    'use strict';
+    var id = sessionStorage.getItem("clientId");
+    var name = document.getElementById("name-update").value;
+    var state = document.getElementById("state-update").value;
+    var qResources = document.getElementById("qResources-update").value;
+
+    if (name === "") {
+        name = null;
+    }
+
+    if (state === "") {
+        state = state;
+    }
+
+    if (qResources === "") {
+        qResources = qResources;
+    }
+
+    if (id == id) {
+        var url = 'http://localhost:1012/clients/' + id;
+        var http = new XMLHttpRequest();
+
+        var dto = {"name": name, "id": id, "state": state, "qResources": qResources, "updated": new Date()};
+
+        var json = JSON.stringify(dto);
+
+        http.open("PUT", url, true);
+        http.setRequestHeader('Content-Type', 'application/json');
+        http.onload = function () {
+            if (http.readyState === 4 && http.status === 200) {
+                sessionStorage.removeItem("clientId");
+                window.location.replace('http://localhost:1012/clients-admin.html');
+            } else {
+                alert("The update fail");
+                window.location.replace('http://localhost:1012/update-client.html');
+            }
+        }
+        http.send(json);
+    }
+}
+
+
 
