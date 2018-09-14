@@ -5,6 +5,10 @@ var table = document.querySelector("#tableClients");
 
 var tableBody = document.querySelector("#tableBody");
 
+var tableDis = document.querySelector("#tableDisClients");
+
+var tableBodyDis = document.querySelector("#tableDisBody");
+
 var requestURL = 'http://localhost:1012/clients';
 var request = new XMLHttpRequest();
 
@@ -17,6 +21,8 @@ request.onload = function() {
     'use strict';
     var clientData = request.response;
     makeTable(clientData);
+    makeDisTable(clientData);
+
 }
 
 function makeTable (jsonObj){
@@ -72,6 +78,57 @@ function makeTable (jsonObj){
 
             tr.append(td1, td2, td3, td4);
             tableBody.append(tr);
+        }
+    }
+}
+function makeDisTable (jsonObj){
+    'use strict'
+    var theadDis = document.createElement('thead');
+    var tr1Dis = document.createElement('tr');
+
+    var thDis = document.createElement('th');
+    thDis.id='tableContainer';
+    thDis.textContent = 'Name';
+
+    var th1Dis = document.createElement('th');
+    th1Dis.textContent = 'QResources';
+
+    var th2Dis = document.createElement('th');
+    th2Dis.textContent = 'Last Update';
+
+    var th3Dis = document.createElement('th');
+    th3Dis.textContent = 'Actions';
+
+    tr1Dis.append(thDis, th1Dis, th2Dis, th3Dis);
+    theadDis.append(tr1Dis);
+    tableDis.append(theadDis);
+
+
+
+    var tablePartsDis = jsonObj;
+
+
+    for (var i = 0; i<tablePartsDis.length; i++){
+        if(tablePartsDis[i].state==false){
+            var trDis = document.createElement('tr');
+
+            var td1Dis = document.createElement('td');
+            td1Dis.textContent = tablePartsDis[i].name;
+
+            var td2Dis = document.createElement('td');
+            td2Dis.textContent = tablePartsDis[i].qResources;
+
+            var td3Dis = document.createElement('td');
+            td3Dis.textContent = tablePartsDis[i].updated;
+
+            var clientIdDis = tablePartsDis[i].id;
+            var td4Dis = document.createElement('td');
+            td4Dis.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm("+clientIdDis+")'>Update</button>\n" +
+                "\n" +
+                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient("+clientIdDis+")' >Delete</button>\n";
+
+            trDis.append(td1Dis, td2Dis, td3Dis, td4Dis);
+            tableBodyDis.append(trDis);
         }
     }
 }
