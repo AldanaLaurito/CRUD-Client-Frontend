@@ -5,9 +5,9 @@ var table = document.querySelector("#tableClients");
 
 var tableBody = document.querySelector("#tableBody");
 
-var tableDis = document.querySelector("#tableDisClients");
+//var tableDis = document.querySelector("#tableDisClients");
 
-var tableBodyDis = document.querySelector("#tableDisBody");
+//var tableBodyDis = document.querySelector("#tableDisBody");
 
 var requestURL = 'http://localhost:1012/clients';
 var request = new XMLHttpRequest();
@@ -21,7 +21,7 @@ request.onload = function() {
     'use strict';
     var clientData = request.response;
     makeTable(clientData);
-    makeDisTable(clientData);
+    //makeDisTable(clientData);
 
 }
 
@@ -58,9 +58,12 @@ function makeTable (jsonObj){
 
             var td1 = document.createElement('td');
             td1.textContent = tableParts[i].name;
+            var name=tableParts[i].name;
 
             var td2 = document.createElement('td');
-            td2.textContent = tableParts[i].qResources;
+            var resources=tableParts[i].qResources;
+            td2.textContent = resources;
+
 
             var td3 = document.createElement('td');
             td3.textContent = tableParts[i].updated;
@@ -69,8 +72,11 @@ function makeTable (jsonObj){
             var td4 = document.createElement('td');
             td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm("+clientId+")'>Update</button>\n" +
                 "\n" +
+                "                <button type=\"button\" id=\"disableBtn\" class=\"btn btn-default \"onclick='disableClient("+clientId+")' >Disable</button>\n" +
+                "\n" +
                 "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient("+clientId+")' >Delete</button>\n";
-
+            sessionStorage.setItem("name"+clientId,name);
+            sessionStorage.setItem("resources"+clientId,resources);
             //document.getElementById("updateBtn").classList.add(tableParts[i].id);
             //document.getElementById("deleteBtn").classList.add(tableParts[i].id);
             //onclick="updateClient()"
@@ -81,6 +87,7 @@ function makeTable (jsonObj){
         }
     }
 }
+/*
 function makeDisTable (jsonObj){
     'use strict'
     var theadDis = document.createElement('thead');
@@ -113,25 +120,32 @@ function makeDisTable (jsonObj){
             var trDis = document.createElement('tr');
 
             var td1Dis = document.createElement('td');
+            var nameDis= "'"+tablePartsDis[i].name+"'";
             td1Dis.textContent = tablePartsDis[i].name;
 
             var td2Dis = document.createElement('td');
-            td2Dis.textContent = tablePartsDis[i].qResources;
+            var resourcesDis=tablePartsDis[i].qResources;
+            td2Dis.textContent = resourcesDis;
 
             var td3Dis = document.createElement('td');
             td3Dis.textContent = tablePartsDis[i].updated;
 
             var clientIdDis = tablePartsDis[i].id;
             var td4Dis = document.createElement('td');
-            td4Dis.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm("+clientIdDis+")'>Update</button>\n" +
+            td4Dis.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm("+clientId+")'>Update</button>\n" +
                 "\n" +
-                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient("+clientIdDis+")' >Delete</button>\n";
+                "                <button type=\"button\" id=\"enableBtn\" class=\"btn btn-default \"onclick='enableClient("+clientId+")' >Enable</button>\n" +
+                "\n" +
+                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient("+clientId+")' >Delete</button>\n";
+
+            sessionStorage.setItem("name"+clientId,name);
+            sessionStorage.setItem("resources"+clientId,resources);
 
             trDis.append(td1Dis, td2Dis, td3Dis, td4Dis);
             tableBodyDis.append(trDis);
         }
     }
-}
+}*/
 btnAddClient.onclick = function() {
     window.location.replace ('http://localhost:1012/create-client.html');
 }
@@ -158,16 +172,17 @@ function postForm(){
 
     var dataJson = JSON.stringify(dto);
 
-    post.onload = function () {
+    /* post.onload = function () {
         if (post.readyState === 4 && post.status === 200){
             window.alert("Client succesfully created");
             window.location.replace ('http://localhost:1012/clients-admin.html');
         }
-        window.alert("Client succesfully created");
-        window.location.replace ('http://localhost:1012/clients-admin.html');
-    };
+
+    }; */
 
     post.send(dataJson);
+    window.alert("Client succesfully created");
+    window.location.replace ('http://localhost:1012/clients-admin.html');
 }
 
 function updateForm(){
@@ -193,8 +208,6 @@ function updateForm(){
             window.alert("Client succesfully updated");
             window.location.replace ('http://localhost:1012/clients-admin.html');
         }
-        window.alert("Client updated");
-        window.location.replace ('http://localhost:1012/clients-admin.html');
     };
 
     post.send(dataJson);
@@ -216,6 +229,37 @@ function deleteClient(id){
     deleteReq.send();
     window.alert("Client succesfully deleted");
     window.location.replace ('http://localhost:1012/clients-admin.html');
+}
+
+function enableClient(id){
+    'use strict'
+
+}
+function disableClient(id){
+    'use strict';
+    //var clientId = sessionStorage.getItem("clientId");
+    var name = sessionStorage.getItem("name"+id);
+    var resources = sessionStorage.getItem("resources"+id);
+
+    var disableUrl = 'http://localhost:1012/clients/'+id;
+    var disable = new XMLHttpRequest();
+
+    disable.open("PUT", disableUrl, true);
+    disable.setRequestHeader('Content-Type', 'application/json');
+
+    var dto = {"name": name, "id": id, "state": false, "qResources": resources, "updated":  new Date()};
+
+    var dataJson = JSON.stringify(dto);
+
+    disable.onload = function () {
+        if (disable.readyState === 4 && disable.status === 200){
+            window.alert("Client succesfully updated");
+            window.location.replace ('http://localhost:1012/clients-admin.html');
+        }
+    };
+
+   disable.send(dataJson);
+
 }
 
 
