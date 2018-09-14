@@ -61,9 +61,9 @@ function makeTable (jsonObj){
 
             var clientId = tableParts[i].id;
             var td4 = document.createElement('td');
-            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm(clientId)'>Update</button>\n" +
+            td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm("+clientId+")'>Update</button>\n" +
                 "\n" +
-                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient(clientId)' >Delete</button>\n";
+                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient("+clientId+")' >Delete</button>\n";
 
             //document.getElementById("updateBtn").classList.add(tableParts[i].id);
             //document.getElementById("deleteBtn").classList.add(tableParts[i].id);
@@ -79,8 +79,9 @@ btnAddClient.onclick = function() {
     window.location.replace ('http://localhost:1012/create-client.html');
 }
 function updateClientForm(id){
-    localStorage.setItem("clientId", id)
+    sessionStorage.setItem("clientId", id)
     window.location.replace ('http://localhost:1012/update-client.html');
+    updateForm();
 }
 
 function postForm(){
@@ -96,39 +97,47 @@ function postForm(){
     var state = document.getElementById("state").value;
     var qResources = document.getElementById("qResources").value;
     //var lastUpdate= document.getElementById('lastUpdate').value;
-    var dto = {"name": name/*, "id": id */, "state": state, "qResources": qResources, "updated": null /*lastUpdate*/};
+    var dto = {"name": name/*, "id": id */, "state": state, "qResources": qResources, "updated": new Date() /*lastUpdate*/};
 
     var dataJson = JSON.stringify(dto);
 
     post.onload = function () {
         if (post.readyState === 4 && post.status === 200){
+            window.alert("Client succesfully created");
             window.location.replace ('http://localhost:1012/clients-admin.html');
         }
+        window.alert("Client succesfully created");
+        window.location.replace ('http://localhost:1012/clients-admin.html');
     };
 
     post.send(dataJson);
 }
 
-function updateForm(id){
+function updateForm(){
     'use strict';
-    var postUrl = 'http://localhost:1012/newClient';
+    var clientId = sessionStorage.getItem("clientId");
+
+    var postUrl = 'http://localhost:1012/clients/'+clientId;
     var post = new XMLHttpRequest();
 
     post.open("POST", postUrl, true);
     post.setRequestHeader('Content-Type', 'application/json');
 
+
     var name = document.getElementById("name").value;
-    var id = document.getElementById("id").value;
     var state = document.getElementById("state").value;
     var qResources = document.getElementById("qResources").value;
-    var dto = {"name": name, "id": id, "state": state, "qResources": qResources, "updated": null};
+    var dto = {"name": name, "id": clientId, "state": state, "qResources": qResources, "updated":  new Date()};
 
     var dataJson = JSON.stringify(dto);
 
     post.onload = function () {
         if (post.readyState === 4 && post.status === 200){
-            window.location.replace ('http://localhost:1012/clients-admin.html?');
+            window.alert("Client succesfully updated");
+            window.location.replace ('http://localhost:1012/clients-admin.html');
         }
+        window.alert("Client updated");
+        window.location.replace ('http://localhost:1012/clients-admin.html');
     };
 
     post.send(dataJson);
@@ -143,8 +152,13 @@ function deleteClient(id){
     var deleteReq = new XMLHttpRequest();
 
     deleteReq.open("DELETE", deleteUrl, true);
-    deleteReq.setRequestHeader('Content-Type', 'application/json');
+   /* deleteReq.onload = function(){
+        window.alert("Client succesfully deleted");
+        window.location.replace ('http://localhost:1012/clients-admin.html');
+    };*/
 
+    window.alert("Client succesfully deleted");
+    window.location.replace ('http://localhost:1012/clients-admin.html');
 }
 
 
