@@ -156,7 +156,7 @@ function deleteClient(id){
         window.alert("Client succesfully deleted");
         window.location.replace ('http://localhost:1012/clients-admin.html');
     };*/
-
+    deleteReq.send();
     window.alert("Client succesfully deleted");
     window.location.replace ('http://localhost:1012/clients-admin.html');
 }
