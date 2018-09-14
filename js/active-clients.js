@@ -17,6 +17,8 @@ request.onload = function() {
     'use strict';
     var clientData = request.response;
     makeTable(clientData);
+    //makeDisTable(clientData);
+
 }
 
 function makeTable (jsonObj){
@@ -47,7 +49,7 @@ function makeTable (jsonObj){
 
 
     for (var i = 0; i<tableParts.length; i++){
-        if(tableParts[i].state==false){
+        if(tableParts[i].state==true){
             var tr = document.createElement('tr');
 
             var td1 = document.createElement('td');
@@ -66,25 +68,45 @@ function makeTable (jsonObj){
             var td4 = document.createElement('td');
             td4.innerHTML = "<button type=\"button\" id=\"updateBtn\" class=\"btn btn-dark \" onclick='updateClientForm("+clientId+")'>Update</button>\n" +
                 "\n" +
-                "                <button type=\"button\" id=\"enableBtn\" class=\"btn btn-default \"onclick='enableClient("+clientId+")' >Enable</button>\n" +
+                "                <button type=\"button\" id=\"disableBtn\" class=\"btn btn-danger \"onclick='disableClient("+clientId+")' >Disable</button>\n" +
                 "\n" +
-                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger \"onclick='deleteClient("+clientId+")' >Delete</button>\n";
-           // sessionStorage.setItem("name"+clientId,name);
-           // sessionStorage.setItem("resources"+clientId,resources);
+                "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-default \"onclick='deleteClient("+clientId+")' >Delete</button>\n";
+            sessionStorage.setItem("name"+clientId,name);
+            sessionStorage.setItem("resources"+clientId,resources);
 
             tr.append(td1, td2, td3, td4);
             tableBody.append(tr);
         }
     }
 }
-btnAddClient.onclick = function() {
-    window.location.replace ('http://localhost:1012/create-client.html');
-}
 function updateClientForm(id){
     sessionStorage.setItem("clientId", id)
     window.location.replace ('http://localhost:1012/update-client.html');
     updateForm();
 }
+
+function postForm(){
+    'use strict'
+    var postUrl = 'http://localhost:1012/clients';
+    var post = new XMLHttpRequest();
+
+    post.open("POST", postUrl, true);
+    post.setRequestHeader('Content-Type', 'application/json');
+
+    var name = document.getElementById("name").value;
+    //var id = document.getElementById("id").value;
+    var state = document.getElementById("state").value;
+    var qResources = document.getElementById("qResources").value;
+    //var lastUpdate= document.getElementById('lastUpdate').value;
+    var dto = {"name": name/*, "id": id */, "state": state, "qResources": qResources, "updated": new Date() /*lastUpdate*/};
+
+    var dataJson = JSON.stringify(dto);
+
+    post.send(dataJson);
+    window.alert("Client succesfully created");
+    window.location.replace ('http://localhost:1012/active-clients.html');
+}
+
 function updateForm(){
     'use strict';
     var clientId = sessionStorage.getItem("clientId");
@@ -103,18 +125,15 @@ function updateForm(){
 
     var dataJson = JSON.stringify(dto);
 
+    post.send(dataJson);
+
     post.onload = function () {
         if (post.readyState === 4 && post.status === 200){
             window.alert("Client succesfully updated");
-            window.location.replace ('http://localhost:1012/clients-admin.html');
+            window.location.replace ('http://localhost:1012/active-clients.html');
         }
     };
-
-    post.send(dataJson);
 }
-
-
-
 
 function deleteClient(id){
     'use strict';
@@ -122,39 +141,35 @@ function deleteClient(id){
     var deleteReq = new XMLHttpRequest();
 
     deleteReq.open("DELETE", deleteUrl, true);
-    /* deleteReq.onload = function(){
-         window.alert("Client succesfully deleted");
-         window.location.replace ('http://localhost:1012/clients-admin.html');
-     };*/
+
     deleteReq.send();
     window.alert("Client succesfully deleted");
-    window.location.replace ('http://localhost:1012/clients-admin.html');
+    window.location.replace ('http://localhost:1012/active-clients.html');
 }
 
-function enableClient(id){
+function disableClient(id){
     'use strict';
-    //var clientId = sessionStorage.getItem("clientId");
-   // var name = sessionStorage.getItem("name"+id);
-    //var resources = sessionStorage.getItem("resources"+id);
 
-    var enableUrl = 'http://localhost:1012/clients/'+id;
-    var enable = new XMLHttpRequest();
+    var disableUrl = 'http://localhost:1012/clients/'+id;
+    var disable = new XMLHttpRequest();
 
-    enable.open("PUT", enableUrl, true);
-    enable.setRequestHeader('Content-Type', 'application/json');
+    disable.open("PUT", disableUrl, true);
+    disable.setRequestHeader('Content-Type', 'application/json');
 
-    var dto = {"name": null, "id": id, "state": true, "qResources": null, "updated":  new Date()};
+    var dto = {"name": null, "id": id, "state": false, "qResources": null, "updated":  new Date()};
 
     var dataJson = JSON.stringify(dto);
 
-    enable.send(dataJson);
 
-    enable.onload = function () {
-        if (enable.readyState === 4 && enable.status === 200){
+   disable.send(dataJson);
+
+   disable.onload = function () {
+        if (disable.readyState === 4 && disable.status === 200){
             window.alert("Client succesfully updated");
-            window.location.replace ('http://localhost:1012/clients-admin.html');
+            window.location.replace ('http://localhost:1012/inactive-clients.html');
         }
     };
+
 }
 
 

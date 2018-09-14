@@ -43,3 +43,10 @@ html,body{
 .form{
     margin: 30px;
 }
+th{
+    background-color: #9C9C9C;
+}
+.btn-default{
+    color: white;
+    background-color: black;
+}
