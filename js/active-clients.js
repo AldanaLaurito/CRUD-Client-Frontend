@@ -1,5 +1,4 @@
-var btnAddClient = document.getElementById("addClient");
-var btnUpdClient = document.getElementById("updateBtn");
+
 
 var table = document.querySelector("#tableClients");
 
@@ -204,9 +203,9 @@ function update() {
         http.onload = function () {
             if (http.readyState === 4 && http.status === 200) {
                 sessionStorage.removeItem("clientId");
-                window.location.replace('http://localhost:1012/clients-admin.html');
+                window.location.replace('http://localhost:1012/active-clients.html');
             } else {
-                alert("The update fail");
+                alert("The update failed");
                 window.location.replace('http://localhost:1012/update-client.html');
             }
         }
