@@ -72,6 +72,7 @@ function makeTable (jsonObj){
                 "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-default \"onclick='deleteClient("+clientId+")' >Delete</button>\n";
             sessionStorage.setItem("name"+clientId,name);
             sessionStorage.setItem("resources"+clientId,resources);
+            sessionStorage.setItem("state"+clientId,tableParts[i].state);
 
             tr.append(td1, td2, td3, td4);
             tableBody.append(tr);
@@ -81,7 +82,6 @@ function makeTable (jsonObj){
 function updateClientForm(id){
     sessionStorage.setItem("clientId", id)
     window.location.replace ('http://localhost:1012/update-client.html');
-    updateForm();
 }
 
 function postForm(){
@@ -102,34 +102,15 @@ function postForm(){
     var dataJson = JSON.stringify(dto);
 
     post.send(dataJson);
-    window.alert("Client succesfully created");
-    window.location.replace ('http://localhost:1012/active-clients.html');
-}
-
-function updateForm(){
-    'use strict';
-    var clientId = sessionStorage.getItem("clientId");
-
-    var postUrl = 'http://localhost:1012/clients/'+clientId;
-    var post = new XMLHttpRequest();
-
-    post.open("POST", postUrl, true);
-    post.setRequestHeader('Content-Type', 'application/json');
-
-
-    var name = document.getElementById("name").value;
-    var state = document.getElementById("state").value;
-    var qResources = document.getElementById("qResources").value;
-    var dto = {"name": name, "id": clientId, "state": state, "qResources": qResources, "updated":  new Date()};
-
-    var dataJson = JSON.stringify(dto);
-
-    post.send(dataJson);
-
     post.onload = function () {
         if (post.readyState === 4 && post.status === 200){
-            window.alert("Client succesfully updated");
-            window.location.replace ('http://localhost:1012/active-clients.html');
+            window.alert("Client succesfully created");
+            if(state==true){
+                window.location.replace ('http://localhost:1012/active-clients.html');
+            }else{
+                window.location.replace ('http://localhost:1012/inactive-clients.html');
+            }
+
         }
     };
 }
@@ -183,11 +164,11 @@ function update() {
     }
 
     if (state === "") {
-        state = state;
+        state = sessionStorage.getItem("state"+ id);
     }
 
     if (qResources === "") {
-        qResources = qResources;
+        qResources = null;
     }
 
     if (id == id) {
@@ -202,13 +183,17 @@ function update() {
         http.setRequestHeader('Content-Type', 'application/json');
         http.onload = function () {
             if (http.readyState === 4 && http.status === 200) {
-                sessionStorage.removeItem("clientId");
-                window.location.replace('http://localhost:1012/active-clients.html');
+                if(state==true){
+                    window.location.replace('http://localhost:1012/active-clients.html');
+                } else if(state==false){
+                    window.location.replace('http://localhost:1012/inactive-clients.html');
+                }
             } else {
                 alert("The update failed");
                 window.location.replace('http://localhost:1012/update-client.html');
             }
         }
+        sessionStorage.removeItem("clientId");
         http.send(json);
     }
 }

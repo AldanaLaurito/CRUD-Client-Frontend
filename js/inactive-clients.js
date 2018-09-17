@@ -69,8 +69,9 @@ function makeTable (jsonObj){
                 "                <button type=\"button\" id=\"enableBtn\" class=\"btn btn-success \"onclick='enableClient("+clientId+")' >Enable</button>\n" +
                 "\n" +
                 "                <button type=\"button\" id=\"deleteBtn\" class=\"btn btn-danger\"onclick='deleteClient("+clientId+")' >Delete</button>\n";
-           // sessionStorage.setItem("name"+clientId,name);
-           // sessionStorage.setItem("resources"+clientId,resources);
+            sessionStorage.setItem("name"+clientId,name);
+            sessionStorage.setItem("resources"+clientId,resources);
+            sessionStorage.setItem("state"+clientId,tableParts[i].state);
 
             tr.append(td1, td2, td3, td4);
             tableBody.append(tr);
@@ -80,7 +81,6 @@ function makeTable (jsonObj){
 function updateClientForm(id){
     sessionStorage.setItem("clientId", id)
     window.location.replace ('http://localhost:1012/update-client.html');
-    updateForm();
 }
 function deleteClient(id){
     'use strict';
